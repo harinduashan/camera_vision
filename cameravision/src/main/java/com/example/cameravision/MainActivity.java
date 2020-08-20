@@ -25,6 +25,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 
 import java.io.ByteArrayOutputStream;
 
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         scaleGestureDetector.onTouchEvent(event);
         return true;
     }
+
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
@@ -220,12 +225,36 @@ public class MainActivity extends AppCompatActivity {
      //   String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
        // byte[] imageBytes = Base64.decode(encodedImage, Base64.DEFAULT);
      //   Bitmap decodedImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        Bitmap decodedImage=RemoveNoise(bitmap);
+        Bitmap decodedImage = removeNoise(bitmap);
         imageView.setImageBitmap(decodedImage);
     }
 
-    public Bitmap RemoveNoise(Bitmap bitmap) {
+    public Bitmap removeNoise(Bitmap bitmap) {
       //  bitmap = Bitmap.createBitmap(LABEL_SIDE_LENGTH, LABEL_SIDE_LENGTH, Bitmap.Config.ARGB_8888)
+        return bitmap;
+    }
+
+    public void edgeDetection(View view) {
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        Bitmap decodedImage = detectEdges(bitmap);
+        imageView.setImageBitmap(decodedImage);
+    }
+
+    private Bitmap detectEdges(Bitmap bitmap) {
+        // Read the bitmap
+        Mat rgba = new Mat();
+        Utils.bitmapToMat(bitmap, rgba);
+
+        // Convert to Grey scale
+        Mat edges = new Mat(rgba.size(), CvType.CV_8UC1);
+        Imgproc.cvtColor(rgba, edges, Imgproc.COLOR_RGB2GRAY, 4);
+
+        // Apply Canny's Algorithm
+        Imgproc.Canny(edges, edges, 80, 100);
+
+        // Visualization
+        Utils.matToBitmap(edges, bitmap);
         return bitmap;
     }
 }
