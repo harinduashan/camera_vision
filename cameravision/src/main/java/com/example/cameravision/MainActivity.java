@@ -33,10 +33,10 @@ import org.opencv.imgproc.Imgproc;
 import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageView;
+    private ImageView imageView;
     private ScaleGestureDetector scaleGestureDetector;
     private float mScaleFactor = 1.0f;
-    Uri image_uri;
+    private Uri image_uri;
 
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1002;
@@ -101,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
             mScaleFactor *= scaleGestureDetector.getScaleFactor();
             mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
             imageView.getScaleType();
-            // imageView.setScaleX(mScaleFactor);
-         //   imageView.setScaleY(mScaleFactor);
+            imageView.setScaleX(mScaleFactor);
+            imageView.setScaleY(mScaleFactor);
             return true;
         }
     }
@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             // set image to view - Load Button
+            assert data != null;
             imageView.setImageURI(data.getData());
         }
         else if (resultCode == RESULT_OK && requestCode == IMAGE_CAPTURE_CODE) {
