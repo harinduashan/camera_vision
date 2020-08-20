@@ -1,0 +1,3 @@
+include ':cameravision'
+include ':openCVLibrary401'
+rootProject.name = "MyEditor"
