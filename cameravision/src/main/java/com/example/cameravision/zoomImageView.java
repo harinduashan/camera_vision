@@ -40,6 +40,13 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
         this.mPosY = 0.0f;
     }
 
+    public float getPosX() {
+        return this.mPosX;
+    }
+    public float getPosY() {
+        return this.mPosY;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         // Let the ScaleGestureDetector inspect all events.

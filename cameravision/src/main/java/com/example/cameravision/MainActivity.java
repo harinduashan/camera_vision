@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private float mScaleFactor = 1.0f;
     private Uri image_uri;
     private Button pickButton;
+    private double refObjDist;
+    private double [] calibrateOne, calibrateTwo, crackOne, crackTwo;
+
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1002;
     private static final int CAMERA_PERMISSION_CODE = 2001;
@@ -93,6 +96,41 @@ public class MainActivity extends AppCompatActivity {
 
     public void onPickButtonClick(View view){
         imageView.initPosition();
+    }
+
+    private void setDistanceCalculationData(String caseId) {
+        switch (caseId) {
+            case "referenceObject":
+                refObjDist = 0.0f;
+                break;
+
+            case "calibrationFirstPoint":
+                calibrateOne = new double[2];
+                break;
+
+            case "calibrationSecondPoint":
+                calibrateTwo = new double[2];
+                break;
+
+            case "crackFirstPoint":
+                crackOne = new double[2];
+                break;
+
+            case "crackSecondPoint":
+                crackTwo = new double[2];
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private double getDistanceOfObject() {
+        double referenceObj = Math.sqrt(Math.pow((calibrateOne[0] - calibrateTwo[0]), 2) +
+                Math.pow((calibrateOne[1] - calibrateTwo[1]), 2));
+        double crackObj = Math.sqrt(Math.pow((crackOne[0] - crackTwo[0]), 2) +
+                Math.pow((crackOne[1] - crackTwo[1]), 2));
+        return refObjDist * (crackObj/referenceObj);
     }
 
 
