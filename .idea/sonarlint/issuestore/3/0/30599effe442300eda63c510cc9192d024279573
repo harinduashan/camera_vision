@@ -1,13 +1,18 @@
 
-Lsquid:S1199˜"-Extract this nested code block into a method.(§´âÀ8”ÁºáÀ.
-Qsquid:S1199£"-Extract this nested code block into a method.(â¨Œøüÿÿÿÿ8”ÁºáÀ.
-osquid:S1301—"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8”ÁºáÀ.
-lsquid:MaximumInheritanceDepth#"<This class has 6 parents which is greater than 5 authorized.(²Ú±8”ÁºáÀ.
-qsquid:S30080"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óİ½æøÿÿÿÿ8”ÁºáÀ.
-ssquid:S00116'"TRename this field "image_uri" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ä¨å8”ÁºáÀ.
-]"squid:SwitchLastCaseIsDefaultCheck—""Add a default case to this switch.(×ö³–úÿÿÿÿ8”ÁºáÀ.
-Psquid:S1481İ"1Remove this unused "outputStream" local variable.(„¾±“8”ÁºáÀ.
-nsquid:CommentedOutCodeLineB"<This block of commented-out lines of code should be removed.(½ğÊªÿÿÿÿÿ8”ÁºáÀ.
-hsquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(“Û»h8”ÁºáÀ.
-isquid:CommentedOutCodeLine×"<This block of commented-out lines of code should be removed.(“¯›8”ÁºáÀ.
-jsquid:CommentedOutCodeLineà"<This block of commented-out lines of code should be removed.(›ÃïÑ8”ÁºáÀ.
+Qsquid:S1199¤"-Extract this nested code block into a method.(â¨Œøüÿÿÿÿ8”ÁºáÀ.
+isquid:CommentedOutCodeLineB"<This block of commented-out lines of code should be removed.(¦¯İ×8£‡ÏüÀ.
+qsquid:S30081"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óİ½æøÿÿÿÿ8”ÁºáÀ.
+ssquid:S00116("TRename this field "image_uri" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ä¨å8”ÁºáÀ.
+nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(½ğÊªÿÿÿÿÿ8”ÁºáÀ.
+wsquid:S1450)"YRemove the "pickButton" field and declare it as a local variable in the relevant methods.(‹ˆæç8áìë€Á.
+osquid:S1301˜"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8”ÁºáÀ.
+]"squid:SwitchLastCaseIsDefaultCheck˜""Add a default case to this switch.(×ö³–úÿÿÿÿ8”ÁºáÀ.
+esquid:UselessImportCheck"5Remove this unused import 'android.widget.ImageView'.(ú¯ëàüÿÿÿÿ8ˆÄ˜€Á.
+Lsquid:S1068)".Remove this unused "pickButton" private field.(‹ˆæç8‚Åê€Á.
+Lsquid:S1199™"-Extract this nested code block into a method.(§´âÀ8”ÁºáÀ.
+Psquid:S1481Ş"1Remove this unused "outputStream" local variable.(„¾±“8”ÁºáÀ.
+lsquid:MaximumInheritanceDepth$"<This class has 6 parents which is greater than 5 authorized.(²Ú±8”ÁºáÀ.
+hsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(“Û»h8”ÁºáÀ.
+isquid:CommentedOutCodeLineØ"<This block of commented-out lines of code should be removed.(“¯›8”ÁºáÀ.
+Ssquid:S1068'"0Remove this unused "mScaleFactor" private field.(Äèóöşÿÿÿÿ8«ÅÎüÀ.
+jsquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(›ÃïÑ8”ÁºáÀ.

@@ -94,7 +94,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -103,20 +103,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
-        <ImageView
+        <com.example.cameravision.zoomImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@android:drawable/ic_input_add" />
 
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/holo_red_light" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/cross_hair" />
+
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -129,26 +133,81 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btnEdge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="edgeDetection"
-            android:text="EDGE" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/buttonGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="grayEvent"
-            android:text="RGB to Gray" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
 
-        <Button
-            android:id="@+id/btnFilt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="filltEvent"
-            android:text="Filters" />
+                <Button
+                    android:id="@+id/button2"
+                    style="@android:style/Widget.Material.Light.Button.Small"
+                    android:layout_width="125dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_face"
+                    android:text="Calibration"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@android:style/Widget.Material.Light.Button.Small"
+                    android:layout_width="125dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_face"
+                    android:text="Distance"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnFilt"
+                    style="@android:style/Widget.Material.Light.Button.Small"
+                    android:layout_width="125dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_face"
+                    android:onClick="filltEvent"
+                    android:text="Filters"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonGray"
+                    style="@android:style/Widget.Material.Light.Button.Small"
+                    android:layout_width="125dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_face"
+                    android:onClick="grayEvent"
+                    android:text="RGB to Gray"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnEdge"
+                    style="@android:style/Widget.Material.Light.Button.Small"
+                    android:layout_width="125dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_face"
+                    android:onClick="edgeDetection"
+                    android:text="EDGE"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -165,7 +224,7 @@
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/holo_red_light" />
+            android:background="@color/camcolor" />
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -216,6 +275,62 @@
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
 
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/camcolor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_dark"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:digits="0123456789"
+            android:ems="10"
+            android:hint="Enter Length in mm"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0"
+            android:text="Reset" />
+
+        <Button
+            android:id="@+id/btn_pick"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:background="@drawable/pick"
+            android:onClick="onPickButtonClick"
+            android:text="Pick" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

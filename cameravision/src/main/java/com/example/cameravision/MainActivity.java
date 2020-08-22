@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,11 +34,11 @@ import org.opencv.imgproc.Imgproc;
 import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView imageView;
+    private zoomImageView imageView;
     private ScaleGestureDetector scaleGestureDetector;
     private float mScaleFactor = 1.0f;
     private Uri image_uri;
-
+    private Button pickButton;
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1002;
     private static final int CAMERA_PERMISSION_CODE = 2001;
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imageView);
-        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+        pickButton = findViewById(R.id.btn_pick);
+//        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
         final TextView coordinates=(TextView) findViewById(R.id.textView);
         //bitmap = ((BitmapDrawable) Map.getDrawable()).getBitmap();
         //coordinates.setText("Touch coordinates:"+String.valueOf(event.getX())+"x"+String.valueOf(event.getY()));
@@ -77,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         */
-        imageView.setOnTouchListener(new View.OnTouchListener() {
+
+       imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override public boolean onTouch(View view, MotionEvent motionEvent) {
                 int[] locations = new int[2];
                 view.getLocationOnScreen(locations);
@@ -88,24 +91,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void onPickButtonClick(View view){
+        imageView.initPosition();
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        scaleGestureDetector.onTouchEvent(event);
+        try {
+            scaleGestureDetector.onTouchEvent(event);
+        }catch (Exception e){
+            return false;
+        }
         return true;
     }
 
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            mScaleFactor *= scaleGestureDetector.getScaleFactor();
-            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
-            imageView.getScaleType();
-            imageView.setScaleX(mScaleFactor);
-            imageView.setScaleY(mScaleFactor);
-            return true;
-        }
-    }
+
     public void camEvent(View view) {
         imageView.invalidate();
         imageView.setImageBitmap(null);
