@@ -1,18 +1,30 @@
 
-Qsquid:S1199¤"-Extract this nested code block into a method.(â¨Œøüÿÿÿÿ8”ÁºáÀ.
-isquid:CommentedOutCodeLineB"<This block of commented-out lines of code should be removed.(¦¯Ý×8£‡ÏüÀ.
-qsquid:S30081"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÝ½æøÿÿÿÿ8”ÁºáÀ.
-ssquid:S00116("TRename this field "image_uri" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ä¨å8”ÁºáÀ.
-nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(½ðÊªÿÿÿÿÿ8”ÁºáÀ.
-wsquid:S1450)"YRemove the "pickButton" field and declare it as a local variable in the relevant methods.(‹ˆæç8áìë€Á.
-osquid:S1301˜"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8”ÁºáÀ.
-]"squid:SwitchLastCaseIsDefaultCheck˜""Add a default case to this switch.(×ö³–úÿÿÿÿ8”ÁºáÀ.
-esquid:UselessImportCheck"5Remove this unused import 'android.widget.ImageView'.(ú¯ëàüÿÿÿÿ8ˆÄ˜€Á.
-Lsquid:S1068)".Remove this unused "pickButton" private field.(‹ˆæç8‚Åê€Á.
-Lsquid:S1199™"-Extract this nested code block into a method.(§´âÀ8”ÁºáÀ.
-Psquid:S1481Þ"1Remove this unused "outputStream" local variable.(„¾±“8”ÁºáÀ.
-lsquid:MaximumInheritanceDepth$"<This class has 6 parents which is greater than 5 authorized.(²Ú±Ž8”ÁºáÀ.
-hsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(“Û»h8”ÁºáÀ.
-isquid:CommentedOutCodeLineØ"<This block of commented-out lines of code should be removed.(“¯›8”ÁºáÀ.
-Ssquid:S1068'"0Remove this unused "mScaleFactor" private field.(Äèóöþÿÿÿÿ8«ÅÎüÀ.
-jsquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(›ÃïÑ8”ÁºáÀ.
+jsquid:CommentedOutCodeLineò"<This block of commented-out lines of code should be removed.(›ÃïÑ8”ÁºáÀ.
+isquid:CommentedOutCodeLineé"<This block of commented-out lines of code should be removed.(“¯›8”ÁºáÀ.
+Lsquid:S1199ª"-Extract this nested code block into a method.(§´âÀ8”ÁºáÀ.
+Qsquid:S1199µ"-Extract this nested code block into a method.(â¨Œøüÿÿÿÿ8”ÁºáÀ.
+osquid:S1301©"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8”ÁºáÀ.
+]"squid:SwitchLastCaseIsDefaultCheck©""Add a default case to this switch.(×ö³–úÿÿÿÿ8”ÁºáÀ.
+Psquid:S1481ï"1Remove this unused "outputStream" local variable.(„¾±“8”ÁºáÀ.
+qsquid:S1192²"RDefine a constant instead of duplicating this literal "LENGTH +++++++++ " 5 times.(ÔÀ¡Ž8¢¹ÆÎÁ.
+Psquid:S1153²"1Directly append the argument of String.valueOf().(ÔÀ¡Ž8¢¹ÆÎÁ.
+Psquid:S1153¾"1Directly append the argument of String.valueOf().(èããë8¢¹ÆÎÁ.
+Psquid:S1153É"1Directly append the argument of String.valueOf().(­¤ÿÂ8¢¹ÆÎÁ.
+Usquid:S1153Ô"1Directly append the argument of String.valueOf().(¼Ž‰ÿÿÿÿÿ8¢¹ÆÎÁ.
+Osquid:S1153ß"1Directly append the argument of String.valueOf().(ÂÊÅ#8¢¹ÆÎÁ.
+lsquid:MaximumInheritanceDepth$"<This class has 6 parents which is greater than 5 authorized.(²Ú±Ž8¢¹ÆÎÁ.
+Gsquid:S1659*"*Declare "calibrateTwo" on a separate line.(Ÿºœ!8¢¹ÆÎÁ.
+Csquid:S1659*"&Declare "crackOne" on a separate line.(Ÿºœ!8¢¹ÆÎÁ.
+Csquid:S1659*"&Declare "crackTwo" on a separate line.(Ÿºœ!8¢¹ÆÎÁ.
+Osquid:S1659-"1Declare "firstRefCoordinateY" on a separate line.(äÕÛ8¢¹ÆÎÁ.
+Usquid:S1659."2Declare "secondRefCoordinateY" on a separate line.(é¤ÕÄýÿÿÿÿ8¢¹ÆÎÁ.
+Lsquid:S1659/".Declare "firstCrackPointY" on a separate line.(žÒÙ°8¢¹ÆÎÁ.
+Msquid:S16590"/Declare "secondCrackPointY" on a separate line.(¥’•Ù8¢¹ÆÎÁ.
+qsquid:S3008:"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÝ½æøÿÿÿÿ8¢¹ÆÎÁ.
+ssquid:S00116("TRename this field "image_uri" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ä¨å8¢¹ÆÎÁ.
+Ssquid:S1068'"0Remove this unused "mScaleFactor" private field.(Äèóöþÿÿÿÿ8¢¹ÆÎÁ.
+isquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(¦¯Ý×8¢¹ÆÎÁ.
+nsquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(½ðÊªÿÿÿÿÿ8¢¹ÆÎÁ.
+hsquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(“Û»h8¢¹ÆÎÁ.
+isquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(Ã¾—Ý8¢¹ÆÎÁ.
+isquid:CommentedOutCodeLine·"<This block of commented-out lines of code should be removed.(™Á†,8¢¹ÆÎÁ.

@@ -16,12 +16,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.service.voice.VoiceInteractionSessionService;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView firstCrackPointX, firstCrackPointY;
     private TextView secondCrackPointX, secondCrackPointY;
     private TextView finalDistanceTextView;
-
+    private Button segmentationBtn;
+    private SeekBar segSeek;
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1002;
     private static final int CAMERA_PERMISSION_CODE = 2001;
@@ -82,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         secondCrackPointX = findViewById(R.id.secondCrackPointX);
         secondCrackPointY = findViewById(R.id.secondCrackPointY);
         finalDistanceTextView = findViewById(R.id.finalDistanceTextView);
+        segmentationBtn = findViewById(R.id.seg_btn);
+        segSeek = findViewById(R.id.seekBar);
 
 
 //        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
@@ -231,6 +236,15 @@ public class MainActivity extends AppCompatActivity {
     public void onCalculateDistanceClick(View view) {
         finalDistanceTextView.setText(String.valueOf(getDistanceOfObject()));
     }
+
+    public void onSegmentation(View view){
+        if(segSeek.getVisibility() == View.VISIBLE){
+            segSeek.setVisibility(View.GONE);
+        }else{
+            segSeek.setVisibility(View.VISIBLE);
+        }
+    }
+
 
     private double getDistanceOfObject() {
         double referenceObj = Math.sqrt(Math.pow((calibrateOne[0] - calibrateTwo[0]), 2) +

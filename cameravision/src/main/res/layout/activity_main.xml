@@ -20,9 +20,10 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:background="@drawable/bottom_rectangle"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="2">
+            android:orientation="vertical">
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -33,31 +34,31 @@
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal|center_vertical">
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button2"-->
-<!--                        style="@android:style/Widget.Material.Light.Button.Small"-->
-<!--                        android:layout_width="125dp"-->
-<!--                        android:layout_height="40dp"-->
-<!--                        android:layout_marginTop="5dp"-->
-<!--                        android:layout_marginBottom="5dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/button_face"-->
-<!--                        android:text="Calibration"-->
-<!--                        android:textColor="@android:color/background_dark"-->
-<!--                        android:textStyle="bold" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button2"-->
+                    <!--                        style="@android:style/Widget.Material.Light.Button.Small"-->
+                    <!--                        android:layout_width="125dp"-->
+                    <!--                        android:layout_height="40dp"-->
+                    <!--                        android:layout_marginTop="5dp"-->
+                    <!--                        android:layout_marginBottom="5dp"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:background="@drawable/button_face"-->
+                    <!--                        android:text="Calibration"-->
+                    <!--                        android:textColor="@android:color/background_dark"-->
+                    <!--                        android:textStyle="bold" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button3"-->
-<!--                        style="@android:style/Widget.Material.Light.Button.Small"-->
-<!--                        android:layout_width="125dp"-->
-<!--                        android:layout_height="40dp"-->
-<!--                        android:layout_marginTop="5dp"-->
-<!--                        android:layout_marginBottom="5dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/button_face"-->
-<!--                        android:text="Distance"-->
-<!--                        android:textColor="@android:color/background_dark"-->
-<!--                        android:textStyle="bold" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button3"-->
+                    <!--                        style="@android:style/Widget.Material.Light.Button.Small"-->
+                    <!--                        android:layout_width="125dp"-->
+                    <!--                        android:layout_height="40dp"-->
+                    <!--                        android:layout_marginTop="5dp"-->
+                    <!--                        android:layout_marginBottom="5dp"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:background="@drawable/button_face"-->
+                    <!--                        android:text="Distance"-->
+                    <!--                        android:textColor="@android:color/background_dark"-->
+                    <!--                        android:textStyle="bold" />-->
 
                     <Button
                         android:id="@+id/buttonGray"
@@ -112,18 +113,31 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/seg_btn"
                         style="@android:style/Widget.Material.Light.Button.Small"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/button_face"
+                        android:onClick="onSegmentation"
                         android:text="SEGMENTATION"
                         android:textColor="@android:color/background_dark"
                         android:textStyle="bold" />
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                style="@android:style/Widget.Material.SeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_dark"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -278,32 +292,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/divider2"
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-<!--        <SeekBar-->
-<!--            android:id="@+id/seekBar"-->
-<!--            style="@android:style/Widget.Material.SeekBar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@android:color/background_dark"-->
-<!--            android:paddingStart="20dp"-->
-<!--            android:paddingTop="20dp"-->
-<!--            android:paddingEnd="20dp"-->
-<!--            android:paddingBottom="10dp" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView5"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@android:color/background_dark"-->
-<!--            android:paddingBottom="10dp"-->
-<!--            android:text="Threshold"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textColor="@android:color/background_light" />-->
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_dark"
+            android:paddingBottom="10dp"
+            android:text="Threshold"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -404,6 +401,17 @@
                         android:padding="10dp"
                         android:layout_margin="10dp"/>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:ems="10"
+                        android:padding="10dp"
+                        android:text="Second Reference Point Coordinates"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="15sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -461,8 +469,8 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="5dp"
                             android:layout_weight="0"
-                            android:onClick="onSetFirstRefClick"
                             android:background="@drawable/pick"
+                            android:onClick="onSetFirstRefClick"
                             android:text="Set" />
                     </LinearLayout>
 
@@ -473,17 +481,6 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/background_dark"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/background_light"
-                        android:text="Second Reference Point Coordinates"
-                        android:ems="10"
-                        android:textSize="15sp"
-                        android:textAlignment="center"
-                        android:padding="10dp"
-                        android:layout_margin="10dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -793,6 +790,7 @@
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             android:paddingTop="10dp" />
+
     </LinearLayout>
 
     <LinearLayout

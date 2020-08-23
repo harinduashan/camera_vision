@@ -12,9 +12,7 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
 
     private float mPosX;
     private float mPosY;
-
-    private float pixelDistance;
-    private int state = 0;
+    private float scale = 1.0f;
 
     private float mLastTouchX;
     private float mLastTouchY;
@@ -41,10 +39,10 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
     }
 
     public float getPosX() {
-        return this.mPosX;
+        return this.mPosX/scale;
     }
     public float getPosY() {
-        return this.mPosY;
+        return this.mPosY/scale;
     }
 
     @Override
@@ -107,6 +105,7 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
                     mLastGestureX = gx;
                     mLastGestureY = gy;
                 }
+                System.out.println("X:"+mPosX+"  Y:"+mPosY+"  s:"+scale);
 
                 break;
             }
@@ -166,7 +165,7 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
 
             // Don't let the object get too small or too large.
             mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
-
+            scale = mScaleFactor;
             invalidate();
             return true;
         }
