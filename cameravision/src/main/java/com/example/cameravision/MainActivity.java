@@ -87,7 +87,22 @@ public class MainActivity extends AppCompatActivity {
         finalDistanceTextView = findViewById(R.id.finalDistanceTextView);
         segmentationBtn = findViewById(R.id.seg_btn);
         segSeek = findViewById(R.id.seekBar);
+        segSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int seekValue = seekBar.getProgress();
+                // Call the Segmentation function with seekValue Argument.
+            }
+        });
 
 //        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
         final TextView coordinates =(TextView) findViewById(R.id.textView);
