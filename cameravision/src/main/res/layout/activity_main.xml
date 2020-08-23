@@ -139,6 +139,17 @@
                 android:paddingBottom="10dp"
                 android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/textView5"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/background_dark"
+                android:paddingBottom="10dp"
+                android:text="Threshold"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -291,16 +302,6 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/background_dark"
-            android:paddingBottom="10dp"
-            android:text="Threshold"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light" />
 
         <ScrollView
             android:layout_width="match_parent"
