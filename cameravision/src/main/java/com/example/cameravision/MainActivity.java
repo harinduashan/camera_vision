@@ -21,7 +21,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ScaleGestureDetector scaleGestureDetector;
     private float mScaleFactor = 1.0f;
     private Uri image_uri;
-    private Button pickButton;
+    private Button setRefObjLength;
     private double refObjDist;
     private double [] calibrateOne, calibrateTwo, crackOne, crackTwo;
 
@@ -65,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imageView);
-        pickButton = findViewById(R.id.btn_pick);
+        setRefObjLength = findViewById(R.id.setRefObjLength);
 //        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
-        final TextView coordinates=(TextView) findViewById(R.id.textView);
+        final TextView coordinates =(TextView) findViewById(R.id.textView);
         //bitmap = ((BitmapDrawable) Map.getDrawable()).getBitmap();
         //coordinates.setText("Touch coordinates:"+String.valueOf(event.getX())+"x"+String.valueOf(event.getY()));
         //int pixel = bitmap.getPixel((int)event.getX(), (int)event.getY());
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void onPickButtonClick(View view){
+    public void onSetLengthClick(View view){
         imageView.initPosition();
     }
 
