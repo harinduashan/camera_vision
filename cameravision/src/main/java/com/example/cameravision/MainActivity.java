@@ -21,6 +21,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,9 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private ScaleGestureDetector scaleGestureDetector;
     private float mScaleFactor = 1.0f;
     private Uri image_uri;
-    private Button setRefObjLength;
     private double refObjDist;
     private double [] calibrateOne, calibrateTwo, crackOne, crackTwo;
+
+    private EditText editLength;
+    private TextView firstRefCoordinateX, firstRefCoordinateY;
+    private TextView secondRefCoordinateX, secondRefCoordinateY;
+    private TextView firstCrackPointX, firstCrackPointY;
+    private TextView secondCrackPointX, secondCrackPointY;
+    private TextView finalDistanceTextView;
 
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1002;
@@ -63,8 +70,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         imageView = findViewById(R.id.imageView);
-        setRefObjLength = findViewById(R.id.setRefObjLength);
+        editLength = findViewById(R.id.editLength);
+        firstRefCoordinateX = findViewById(R.id.firstRefCoordinateX);
+        firstRefCoordinateY = findViewById(R.id.firstRefCoordinateY);
+        secondRefCoordinateX = findViewById(R.id.secondRefCoordinateX);
+        secondRefCoordinateY = findViewById(R.id.secondRefCoordinateY);
+        firstCrackPointX = findViewById(R.id.firstCrackPointX);
+        firstCrackPointY = findViewById(R.id.firstCrackPointY);
+        secondCrackPointX = findViewById(R.id.secondCrackPointX);
+        secondCrackPointY = findViewById(R.id.secondCrackPointY);
+        finalDistanceTextView = findViewById(R.id.finalDistanceTextView);
+
+
 //        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
         final TextView coordinates =(TextView) findViewById(R.id.textView);
         //bitmap = ((BitmapDrawable) Map.getDrawable()).getBitmap();
@@ -94,34 +113,123 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSetLengthClick(View view){
-        imageView.initPosition();
+//        imageView.initPosition();
+        setDistanceCalculationData("referenceObject");
+    }
+
+    public void onResetLengthClick(View view) {
+        refObjDist = 0.0f;
+        editLength.getText().clear();
+    }
+
+    public void onSetFirstRefClick(View view) {
+        setDistanceCalculationData("calibrationFirstPoint");
+    }
+
+    public void onResetFirstRefClick(View view) {
+        calibrateOne = new double[2];
+        calibrateOne[0] = 0.0f;
+        calibrateOne[1] = 0.0f;
+        firstRefCoordinateX.setText("");
+        firstRefCoordinateY.setText("");
+    }
+
+    public void onResetSecondRefClick(View view) {
+        calibrateTwo = new double[2];
+        calibrateTwo[0] = 0.0f;
+        calibrateTwo[1] = 0.0f;
+        secondRefCoordinateX.setText("");
+        secondRefCoordinateY.setText("");
+    }
+
+    public void onSetSecondRefClick(View view) {
+        setDistanceCalculationData("calibrationSecondPoint");
+    }
+
+    public void onResetCrackFirstClick(View view) {
+        crackOne = new double[2];
+        crackOne[0] = 0.0f;
+        crackOne[1] = 0.0f;
+        firstCrackPointX.setText("");
+        firstCrackPointY.setText("");
+    }
+
+    public void onSetCrackFirstClick(View view) {
+        setDistanceCalculationData("crackFirstPoint");
+    }
+
+    public void onResetCrackSecondClick(View view) {
+        crackTwo = new double[2];
+        crackTwo[0] = 0.0f;
+        crackTwo[1] = 0.0f;
+        secondCrackPointX.setText("");
+        secondCrackPointY.setText("");
+    }
+
+    public void onSetCrackSecondClick(View view) {
+        setDistanceCalculationData("crackSecondPoint");
     }
 
     private void setDistanceCalculationData(String caseId) {
         switch (caseId) {
             case "referenceObject":
                 refObjDist = 0.0f;
+                refObjDist = Double.parseDouble(editLength.getText().toString());
+                Log.d(TAG, "LENGTH +++++++++ " + String.valueOf(refObjDist));
                 break;
 
             case "calibrationFirstPoint":
                 calibrateOne = new double[2];
+//                calibrateOne[0] = Double.parseDouble(firstRefCoordinateX.getText().toString());
+//                calibrateOne[1] = Double.parseDouble(firstRefCoordinateY.getText().toString());
+                calibrateOne[0] = imageView.getPosX();
+                calibrateOne[1] = imageView.getPosY();
+                firstRefCoordinateX.setText(String.valueOf(calibrateOne[0]));
+                firstRefCoordinateY.setText(String.valueOf(calibrateOne[1]));
+
+                Log.d(TAG, "LENGTH +++++++++ " + String.valueOf(calibrateOne[0]) + " " + calibrateOne[1]);
                 break;
 
             case "calibrationSecondPoint":
                 calibrateTwo = new double[2];
+
+                calibrateTwo[0] = imageView.getPosX();
+                calibrateTwo[1] = imageView.getPosY();
+                secondRefCoordinateX.setText(String.valueOf(calibrateTwo[0]));
+                secondRefCoordinateY.setText(String.valueOf(calibrateTwo[1]));
+
+                Log.d(TAG, "LENGTH +++++++++ " + String.valueOf(calibrateTwo[0]) + " " + calibrateTwo[1]);
                 break;
 
             case "crackFirstPoint":
                 crackOne = new double[2];
+
+                crackOne[0] = imageView.getPosX();
+                crackOne[1] = imageView.getPosY();
+                firstCrackPointX.setText(String.valueOf(crackOne[0]));
+                firstCrackPointY.setText(String.valueOf(crackOne[1]));
+
+                Log.d(TAG, "LENGTH +++++++++ " + String.valueOf(crackOne[0]) + " " + crackOne[1]);
                 break;
 
             case "crackSecondPoint":
                 crackTwo = new double[2];
+
+                crackTwo[0] = imageView.getPosX();
+                crackTwo[1] = imageView.getPosY();
+                secondCrackPointX.setText(String.valueOf(crackTwo[0]));
+                secondCrackPointY.setText(String.valueOf(crackTwo[1]));
+
+                Log.d(TAG, "LENGTH +++++++++ " + String.valueOf(crackTwo[0]) + " " + crackTwo[1]);
                 break;
 
             default:
                 break;
         }
+    }
+
+    public void onCalculateDistanceClick(View view) {
+        finalDistanceTextView.setText(String.valueOf(getDistanceOfObject()));
     }
 
     private double getDistanceOfObject() {
