@@ -39,9 +39,11 @@ public class zoomImageView extends androidx.appcompat.widget.AppCompatImageView 
     }
 
     public float getPosX() {
+        System.out.println("X: " + this.mPosX/scale);
         return this.mPosX/scale;
     }
     public float getPosY() {
+        System.out.println("Y: " + this.mPosY/scale);
         return this.mPosY/scale;
     }
 
